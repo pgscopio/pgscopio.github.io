@@ -1,0 +1,17 @@
+<div class="header clearfix">
+  <nav>
+    
+    <ul class="nav nav-pills pull-right">
+      {% assign sorted_pages = site.pages | sort:"order" %}
+      {% for my_page in sorted_pages %}
+        {% if my_page.title %}
+          
+          <li role="presentation" {% if page.order == my_page.order %}class="active"{% endif %}><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+  <h3 class="text-muted"><img src="{{"/images/logo.png" | prepend: site.baseurl}}" class="logo"/> {{ site.title }}</h3>
+</div>
+
+
